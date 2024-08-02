@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharing</title>
+    <link rel="stylesheet" href="assert/css/sharing.css">
+    <link rel="icon" href="assert/image/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <nav>
+                <div class="logo"></div>
+                <div class="new-logo"></div>
+                <div id="toggle">&#8801;</div>
+                <ul id="Menu">
+                    <li>
+                        <a href="index.html"><b>Home</b></a>
+                    </li>
+                    <li>
+                        <a href="about.html"><b>About</b></a>
+                    </li>
+                    <li>
+                        <a href="sharing.html" class="active"><b>Sharing</b></a>
+                    </li>
+                    <li>
+                        <a href="contact.html"><b>Contact</b></a>
+                    </li>
+                </ul>
+                <input type="text" class="search" placeholder="Search...">
+            </nav>
+        </div>
+
+        <div class="header-text">
+            <h1>Lecture 4: What is physical design ?</h1>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="flexbox">
+            <main class="flex flex3">
+                <h2>What is physical design </h2>
+                <p>
+                    Physical design means --->> netlist (.v ) converted into GDSII form(layout form)
+                    logical connectivity of cells converted into physical connectivity. <br>
+                    During physical design, all design components are instantiated with their geometric representations.
+                    In other words, all macros, cells, gates, transistors, etc., with fixed shapes and sizes per
+                    fabrication layer, are assigned spatial locations (placement) and have appropriate routing
+                    connections (routing) completed in metal layers.
+                </p>
+                <p>
+                    Physical design directly impacts circuit performance, area, reliability, power, and manufacturing
+                    yield. Examples of these impacts are discussed below. <br>
+                <ol>
+                    <li><b>Performance</b>: long routes have significantly longer signal delays.</li>
+                    <li><b>Area</b>: placing connected modules far apart results in larger and slower chips.</li>
+                    <li><b>Reliability</b>: A large number of vias can significantly reduce the reliability of the
+                        circuit.
+                    </li>
+                    <li><b>Power</b>: transistors with smaller gate lengths achieve greater switching speeds at the cost
+                        of
+                        higher
+                        leakage current and manufacturing variability; larger transistors and longer wires result in
+                        greater
+                        dynamic power dissipation.</li>
+                    <li><b>Yield</b>: wires routed too close together may decrease yield due to electrical shorts
+                        occurring
+                        during
+                        manufacturing, but spreading gates too far apart may also undermine yield due to longer wires
+                        and a
+                        higher probability of opens</li>
+                </ol>
+
+                </p>
+                <p>
+                    Due to its high complexity, physical design is split into several key steps (Fig. 1). <br>
+                <ul>
+                    <li><b>Partitioning</b>: breaks up a circuit into smaller sub-circuits or module which can each be
+                        designed or
+                        analyzed individually.</li>
+                    <li><b>Floorplanning</b>: determines the shapes and arrangement of sub-circuits or modules, as well
+                        as the
+                        locations of external ports and IP or macro-blocks.</li>
+                    <li><b>Power and ground routing (power planning)</b>: often intrinsic to floorplanning, distributes
+                        power (VDD)
+                        and ground (GND) nets throughout the chip.</li>
+                    <li><b>Placement</b>: finds the spatial locations of all cells within each block.</li>
+                    <li><b>Clock network synthesis</b>: determines the buffering, gating (e.g., for power management)
+                        and routing
+                        of the clock signal to meet prescribed skew and delay requirements.</li>
+                    <li><b>Global routing</b>: allocates routing resources that are used for connections; example
+                        resources include
+                        routing tracks in the channel and in the switch box.</li>
+                    <li><b>Detailed routing</b>: assigns routes to specific metal layers and routing tracks within the
+                        global
+                        routing resources.</li>
+                    <li><b>Timing closure</b>: optimizes circuit performance by specialized placement or routing
+                        techniques.</li>
+                </ul>
+
+                </p>
+                <h4>**GDS- Graphical Data system</h4>
+                <p>
+                <ol>
+                    <li>The physical design is the process of transforming a circuit description into the physical
+                        layout,
+                        which describes the position of cells and routes for the interconnections between them.</li>
+                    <li>The main concern is the physical design of VLSI-chips is to find a layout with minimal area,
+                        further
+                        the total wire length has to be minimized. For some critical nets there are hard limitations for
+                        the
+                        maximal wire length.</li>
+                </ol>
+                <img src="assert/image/PD_flow.jpg" alt="flow">
+                </p>
+                <p>
+                    The main steps in the ASIC PHYSICAL DESIGN flow are:
+                <ol>
+                    <li>Design netlist (after synthesis)
+                    </li>
+                    <li>Floorplanning </li>
+                    <li>Power planning
+                    </li>
+                    <li>Placement</li>
+                    <li>Clock Tree Synthesis(CTS)
+                    </li>
+                    <li>Routing</li>
+                    <li>Physical verification
+                    </li>
+                    <li>GDSII generation
+                    </li>
+                </ol>
+                </p>
+                <h4>Physical verification:</h4>
+                <p>
+                    After physical design is completed, the layout must be fully verified to ensure correct electrical
+                    and logical functionality. Some problems found during physical verification can be tolerated if
+                    their impact on chip yield is negligible. Therefore, at this stage, layout changes are usually
+                    performed manually by experienced design engineers.
+                </p>
+                <p>
+                <ul>
+                    <li><b>Design rule checking (DRC):</b> verifies that the layout meets all technology-imposed
+                        constraints. DRC also verifies layer density for chemical-mechanical polishing (CMP).</li>
+                    <li><b>Layout vs. schematic (LVS): </b>checking verifies the functionality of the design. From the
+                        layout, a netlist is derived and compared with the original netlist produced from logic
+                        synthesis or circuit design.</li>
+                    <li><b>Parasitic extraction:</b>derives electrical parameters of the layout elements from their
+                        geometric representations; with the netlist, these are used to verify the electrical
+                        characteristics of the circuit.</li>
+                    <li><b>Antenna rule checking:</b>seeks to prevent antenna effects, which may damage transistor gates
+                        during manufacturing plasma-etch steps through the accumulation of excess charge on metal wires
+                        that are not connected to PN junction node</li>
+                    <li><b>Electrical rule checking (ERC):</b>verifies the correctness of power and ground connections,
+                        and that signal transition times (slew), capacitive loads and fan-outs are appropriately bounded
+                    </li>
+                </ul>
+                </p>
+                <img src="assert/image/PD2.jpg" alt="PD_FLOW">
+
+            </main>
+
+            <aside class="flex flex1">
+                <h2>Sidebar</h2>
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrapper">
+            <div class="flexbox">
+                <div class="flex flex1">
+                    <h2>Menu</h2>
+                    <ul>
+                        <li><a href="#">Menu Item</a></li>
+                        <li><a href="#">Menu Item</a></li>
+                        <li><a href="#">Menu Item</a></li>
+                        <li><a href="#">Menu Item</a></li>
+                        <li><a href="#">Menu Item</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex1">
+                    <h2>Menu</h2>
+                    <ul>
+                        <li><a href="#">Menu Item</a></li>
+                        <li><a href="#">Menu Item</a></li>
+                        <li><a href="#">Menu Item</a></li>
+                        <li><a href="#">Menu Item</a></li>
+                        <li><a href="#">Menu Item</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex2">
+                    <h2>About me</h2>
+                    <p>Hello My name is Long and I'm 21, I'm learning at Danang University of Technology, and now I'm a
+                        Front End VLSI engineer at FPT Semiconductor</p>
+                </div>
+            </div>
+        </div>
+        <section class="copyright">
+            <div class="wrapper">
+                <p>&copy; 2021-2024 Long Hoang. All rights reserved</p>
+            </div>
+        </section>
+    </footer>
+    <script src="assert/js/master.js"></script>
+</body>
+
+</html>

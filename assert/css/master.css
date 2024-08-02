@@ -1,0 +1,315 @@
+html,body{
+    /* background: black; */
+    margin: 0;
+    font: normal 18px/1.4em Arial;
+}
+.wrapper {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+header {
+    position: relative;
+    background: url('../image/moon-8855057_1920.jpg') no-repeat center center ;
+    background-size: cover;
+    min-height: 300px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Hiệu ứng đổ bóng cho chữ */
+    transition: transform 0.5s, color 0.5s; /* Hiệu ứng chuyển đổi */
+
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(-1px); /* Chữ di chuyển lên khi hiện */
+    }
+}
+nav{
+    padding: 10px;
+    border-radius: 7px;
+    background: rgba(0,0,0,.5);
+    
+}
+nav .logo{
+    
+    width: 25px;
+    height: 25px;
+    background: url('../image/logo.webp') no-repeat
+    center center;
+    background-size: 80%;
+
+}
+nav .new-logo{
+    width: 25px;
+    height: 25px;
+    background: url('../image/logo2.webp') no-repeat
+    center center;
+    background-size: 80%;
+}
+
+nav .logo, nav .new-logo, nav #toggle{
+    display: inline-block;
+    padding: 10px 13px;
+}
+nav ul{
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    text-align: center;
+}
+nav ul li{
+    /* background: black; */
+    display: inline-block;
+    padding: 10px 13px;
+    /* text-align: center; */
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+    color: rgb(255,0,0);
+}
+
+nav .search{
+    display: inline-block;
+    height: 20px;
+    /* width: 200px; */
+    float: right;
+    width: 150px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px #444444;
+    border-radius: 7px;
+    background: white;
+    font-size: 110%;
+    color: black;
+    
+}
+nav .search:focus{
+    outline: none;
+    border-color: rgb(red, green, blue);
+}
+
+  
+header .header-text{
+    color: #D8e9f3;
+    text-align: center;
+    position: absolute;
+    top: 60%;
+    left:50%;
+    text-shadow: 0 0 30px black;
+    max-width: 1200px;
+    transform: translateX(-50%) translateY(-50%);
+}
+header h1:hover, h2:hover {
+    transform: scale(1.1); /* Chữ lớn hơn khi hover */
+    color: #FFD700; /* Đổi màu chữ khi hover */
+}
+
+main{
+    min-height: 38vh;
+    padding: 20px;
+}
+aside{
+    padding: 20px;
+    border-radius: 7px;
+    background: #eeeeee;
+}
+footer{
+    background: #222222;
+    color: #dddddd;
+}
+footer h2{
+    color: white;
+}
+footer ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+footer ul li a{
+    text-decoration: none;
+    color: #dddddd;
+    
+}
+footer ul li a:hover{
+    color: white;
+}
+footer a{
+    /* text-decoration: none; */
+    color: white;
+    background: #222222;
+}
+.copyright{
+    font-size: 90%;
+    color: #999999;
+    border-top: 1px solid #555555;
+}
+.copyright p{
+    padding: 5px;
+    margin: 0;
+}
+.flexbox{
+    display: flex;
+    width: 100%;
+}
+.flex.flex1{
+    flex:1;
+}
+.flex.flex2{
+    flex:2;
+}
+.flex.flex3{
+    flex:3;
+}
+ul {
+    list-style: none;
+  }
+  
+  .example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+    padding: 0.5rem;
+  }
+  .example-2 .icon-content .tooltip {
+    position: absolute;
+    top: 100%;
+    right: 110%;
+    transform: translateY(200%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  .example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+  }
+  .example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+  .example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+  }
+  .example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+   
+  }
+  .example-2 .icon-content a:hover {
+    color: white;
+  }
+  .example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+  }
+  .example-2 .icon-content a:hover .filled {
+    height: 100%;
+  }
+  
+  .example-2 .icon-content a[data-social="linkedin"] .filled,
+  .example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+    background-color: #0274b3;
+  }
+  
+  .example-2 .icon-content a[data-social="github"] .filled,
+  .example-2 .icon-content a[data-social="github"] ~ .tooltip {
+    background-color: #24262a;
+  }
+  .example-2 .icon-content a[data-social="instagram"] .filled,
+  .example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+    background: linear-gradient(
+      45deg,
+      #405de6,
+      #5b51db,
+      #b33ab4,
+      #c135b4,
+      #e1306c,
+      #fd1f1f
+    );
+  }
+  .example-2 .icon-content a[data-social="facebook"] .filled,
+  .example-2 .icon-content a[data-social="facebook"] ~ .tooltip {
+    background-color: #3B5998;
+  }
+  
+@media only screen and (max-width:768px){
+    .flexbox,
+    .fex{
+        display: block;
+        width: 100%;
+    }
+    nav{
+        padding: 0;
+        background: none;
+    }
+    nav #toggle{
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 5px;
+        font-size: 250%;
+        color: black;
+        background: white;
+        cursor: pointer;
+    }
+    nav ul{
+        position: absolute;
+        top:60px;
+        z-index: 2;
+        width: 90%;
+        background: black;
+        display: none;
+    }
+    nav ul li{
+        display: block;
+    }
+    nav ul.open{
+        display: block;
+    }
+    nav .logo, nav .new-logo{
+        display: block;
+        text-align: center;
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+    }
+    nav .search{
+        display: none;
+    }
+}
