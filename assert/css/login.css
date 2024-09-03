@@ -21,6 +21,7 @@ p {
 }
 h4 {
   font-weight: 600;
+  margin-top: 15px;
 }
 h6 span{
   padding: 0 20px;
@@ -93,7 +94,7 @@ display: none;
 }
 .card-front, .card-back {
   width: 100%;
-  height: 100%;
+  height: 110%;
   background-color: #2b2e38;
   background-image: url('/img/pattern_japanese-pattern-2_1_2_0-0_0_1__ffffff00_000000.png');
   position: absolute;
@@ -178,4 +179,48 @@ display: none;
   background-color: #000000;
   color: #ffeba7;
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+.social-account-container {
+  margin-top: 15px;
+}
+
+.social-account-container .title {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #ffeba7;
+}
+
+.social-account-container .social-accounts {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.social-account-container .social-accounts .social-button {
+  background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
+  border: 5px solid #ffeba7;
+  padding: 5px;
+  border-radius: 50%;
+  width: 40px;
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-account-container .social-accounts .social-button .svg {
+  fill: white;
+  margin: auto;
+}
+
+.social-account-container .social-accounts .social-button:hover {
+  transform: scale(1.2);
+}
+
+.social-account-container .social-accounts .social-button:active {
+  transform: scale(0.9);
 }
