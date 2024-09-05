@@ -380,6 +380,18 @@ article:nth-child(3){
 article:nth-child(4){
     background-color: var(--second-color);
 }
+article:nth-child(5){
+    background-color: var(--second-color);
+}
+article:nth-child(6){
+    background-color: var(--second-color);
+}
+article:nth-child(7){
+    background-color: var(--second-color);
+}
+article:nth-child(8){
+    background-color: var(--second-color);
+}
 .card__img{
     width: 180px;
     height: auto;
